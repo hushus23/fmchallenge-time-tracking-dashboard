@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+
+  <title>Frontend Mentor | Time tracking dashboard</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style type="text/tailwindcss">
+    .attribution { 
+      font-size: 11px; 
+      text-align: center; 
+    }
+    .attribution a { 
+      color: hsl(228, 45%, 44%); 
+    }
+  
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-[#2F374F] font-sans">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-6 w-full max-w-6xl p-6">
+
+    <!-- Profile Section -->
+    <section class="md:row-span-2 bg-[#34395A] rounded-xl overflow-hidden">
+      <div class="bg-blue-700 p-6 rounded-t-xl">
+        <img class="h-20 w-20 rounded-full mb-4" src="images/image-jeremy.png" alt="Jeremy Robson">
+        <p class="text-sm text-white opacity-70">Report for</p>
+        <h3 class="text-4xl text-white font-light">Jeremy Robson</h3>
+      </div>
+      <ul id="categoryButtons" class="flex md:flex-col justify-around md:justify-start md:gap-4 p-6 text-white text-sm">
+        <li data-category="daily" class="cursor-pointer hover:text-blue-400">Daily</li>
+        <li data-category="weekly" class="cursor-pointer hover:text-blue-400">Weekly</li>
+        <li data-category="monthly" class="text-white font-bold cursor-pointer">Monthly</li>
+      </ul>
+    </section>
+
+    <!-- Activity Card Template -->
+    <!-- Repeat this block for each activity -->
+    <section class="relative bg-[#ff8c66] rounded-xl overflow-hidden">
+      <!-- Background Icon -->
+      <div class="absolute top-0 right-0 p-4 opacity-30">
+        <img src="images/icon-work.svg" alt="Work Icon" class="w-16 h-16">
+      </div>
+      <!-- Content -->
+      <div class="bg-[#34395A] p-6 mt-12 rounded-xl relative z-10">
+        <div class="flex justify-between items-center text-white mb-2">
+          <h4>Work</h4>
+          <img src="images/icon-ellipsis.svg" alt="">
+        </div>
+        <h3 id="work-current" class="text-3xl text-white font-light">32hrs</h3>
+        <p id="work-previous" class=" text-sm text-white opacity-70">Last Week - 36hrs</p>
+      </div>
+    </section>
+
+    <!-- Repeat for other categories -->
+    <section class="relative bg-[#56C2E6] rounded-xl overflow-hidden">
+      <div class="absolute top-0 right-0 p-4 opacity-30">
+        <img src="images/icon-play.svg" alt="Play Icon" class="w-16 h-16">
+      </div>
+      <div class="bg-[#34395A] p-6 mt-12 rounded-xl relative z-10">
+        <div class="flex justify-between items-center text-white mb-2">
+          <h4>Play</h4>
+          <img src="images/icon-ellipsis.svg" alt="">
+        </div>
+        <h3 id="play-current" class="text-3xl text-white font-light">10hrs</h3>
+        <p id="play-previous" class="text-sm text-white opacity-70">Last Week - 8hrs</p>
+      </div>
+    </section>
+
+    <section class="relative bg-[#FF99AF] rounded-xl overflow-hidden">
+      <div class="absolute top-0 right-0 p-4 opacity-30">
+        <img src="images/icon-study.svg" alt="Study Icon" class="w-16 h-16">
+      </div>
+      <div class="bg-[#34395A] p-6 mt-12 rounded-xl relative z-10">
+        <div class="flex justify-between items-center text-white mb-2">
+          <h4>Study</h4>
+          <img src="images/icon-ellipsis.svg" alt="">
+        </div>
+        <h3 id="study-current" class="text-3xl text-white font-light">4hrs</h3>
+        <p id="study-previous" class="text-sm text-white opacity-70">Last Week - 7hrs</p>
+      </div>
+    </section>
+
+    <section class="relative bg-[#009457] rounded-xl overflow-hidden">
+      <div class="absolute top-0 right-0 p-4 opacity-30">
+        <img src="images/icon-exercise.svg" alt="Exercise Icon" class="w-16 h-16">
+      </div>
+      <div class="bg-[#34395A] p-6 mt-12 rounded-xl relative z-10">
+        <div class="flex justify-between items-center text-white mb-2">
+          <h4>Exercise</h4>
+          <img src="images/icon-ellipsis.svg" alt="">
+        </div>
+        <h3 id="exercise-current" class="text-3xl text-white font-light">4hrs</h3>
+        <p id="exercise-previous" class="text-white opacity-70">Last Week - 5hrs</p>
+      </div>
+    </section>
+
+    <section class="relative bg-[#854ED9] rounded-xl overflow-hidden">
+      <div class="absolute top-0 right-0 p-4 opacity-30">
+        <img src="images/icon-social.svg" alt="Social Icon" class="w-16 h-16">
+      </div>
+      <div class="bg-[#34395A] p-6 mt-12 rounded-xl relative z-10">
+        <div class="flex justify-between items-center text-white mb-2">
+          <h4>Social</h4>
+          <img src="images/icon-ellipsis.svg" alt="">
+        </div>
+        <h3 id="social-current " class="text-3xl text-white font-light">5hrs</h3>
+        <p id="social-previous" class="text-white opacity-70">Last Week - 10hrs</p>
+      </div>
+    </section>
+
+    <section class="relative bg-[#cc9a1a] rounded-xl overflow-hidden">
+      <div class="absolute top-0 right-0 p-4 opacity-30">
+        <img src="images/icon-self-care.svg" alt="Self Care Icon" class="w-16 h-16">
+      </div>
+      <div class="bg-[#34395A] p-6 mt-12 rounded-xl relative z-10">
+        <div class="flex justify-between items-center text-white mb-2">
+          <h4>Self Care</h4>
+          <img src="images/icon-ellipsis.svg" alt="">
+        </div>
+        <h3 id="self-care-current" class="text-3xl text-white font-light">2hrs</h3>
+        <p id="self-care-previous" class="text-white opacity-70">Last Week - 2hrs</p>
+      </div>
+    </section>
+
+  </div>
+
+ <script src="script.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+</body>
+</html>
